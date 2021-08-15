@@ -1,0 +1,39 @@
+<html>
+    <head><title>Comman value</title></head>
+
+    <body>
+          <h2>this Two array comman value is</h2>
+          <h5>[1,2,3,4,5]</h5>
+          <h5>[3,4,5]</h5>
+
+    
+
+
+
+
+
+
+
+        <p id="demo" style="color: green;"></p>
+
+        
+    </body>
+</html>
+<script>
+
+let arr1=[1,2,3,4,5]
+let arr2=[1,2,3,4,5]
+let newarr=[];
+for(var i=1;i<=arr1.length;i++){
+    for(var j=1;j<=arr2.length;j++){
+        if(arr1[i]==arr2[j]){
+          
+            newarr.push(i);
+            
+            document.getElementById("demo").innerHTML = newarr;
+
+        }
+    }
+}
+
+</script>
