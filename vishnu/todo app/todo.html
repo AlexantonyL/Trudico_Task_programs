@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="todopage.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-primary">
+            <div class="container">
+                <a href="\" class="navbar-brand">Todo App</a>
+                <button type="button" class="navbar-toggler" data-target="myNav" data-toggle="collapse"><span class="navbar-toggle-icon"></span></button>
+                <div class="collapse-navbar-collapse" id="myNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a href="">home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="">about</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="">help</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+       
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="btnMode">
+                    <button id="dBtn" class="btn btn-secondary">Dark Mode</button>
+                    <button id="lBtn" class="btn btn-warning">Lite Mode</button>
+                </div>
+                <div>
+                    <h1>Enter your Todos</h1>
+                </div>
+                <div>
+                    <input type="text" id="textInp" name="text" placeholder="Enter the todo">
+                    <br>
+                    <br>
+                    <label for="">Enter the Priority</label>
+                    <select name="priority" id="priority">
+                        <option value=10>high</option>
+                        <option value=5 selected>medium</option>
+                        <option value=1 >low</option>
+                    </select>
+                    <br>
+                    <br>
+                    <input id="remainderTime" type="datetime-local">
+                    <br>
+                    <br>
+                    <button id="btn" onclick="saveText()" class="btn btn-primary">save</button><br>
+                    <label id="valid"></label>
+                </div>
+                <br>
+                <br>
+                
+                <br>
+                <div>
+                    <h3>Incompleted Todos</h3>
+                </div>
+                <br>
+                <div id="incompletedTodos">
+                    
+                      
+                </div>
+
+            </div>
+            <div class="col-6">
+                <div id="remainder">
+                    <h2>Remainder</h2><br><br>
+                    <p>this todo you need to complete ASAP!</p>
+
+                </div>
+                <div>
+                    <h3>Completed Todos</h3>
+                </div>
+                <div id="completedTodos">
+
+                </div>
+                <br>
+                <div id="pointsGainedToday">
+                    <h3>points Gained Today</h3>
+
+                </div>
+                
+
+
+            </div>
+
+        </div>
+
+    </div>
+    
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="todo.js"></script>
+</body>
+</html>

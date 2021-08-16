@@ -1,0 +1,35 @@
+.inpText {
+    padding: 10px;
+}
+#valid {
+    color: red;
+}
+.row {
+    text-align: center;
+    padding: 20px;
+}
+input {
+    width: 75%;
+}
+#completedTodos {
+    padding: 10px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
+#incompletedTodos{
+    padding: 10px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    
+}
+h1 {
+    color: springgreen;
+}
+h3 {
+    color: chartreuse;
+}
+.btnMode {
+    padding-right: 100%;
+}
