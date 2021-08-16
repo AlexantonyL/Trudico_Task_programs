@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Order</title>
+</head>
+
+<body>
+    <script>
+
+        // The input is not from user and the output is shown in Console log
+        
+        const Books = {
+            "C++": {
+                "price": 109,
+                "discPercent": 6,
+                "maxQuantity": 5,
+                "maxDiscountInRs": 25
+            },
+            "Java": {
+                "price": 354.50,
+                "discPercent": 3,
+                "maxQuantity": 2,
+                "maxDiscountInRs": 25
+            },
+
+            "OpenEdge ABL": {
+                "price": 109,
+                "discPercent": 6,
+                "maxQuantity": 5,
+                "maxDiscountInRs": 25
+            },
+
+            "Ladder Logic": {
+                "price": 200,
+                "discPercent": 5,
+                "maxQuantity": 8,
+                "maxDiscountInRs": 20
+            },
+            "Erlang": {
+                "price": 2400,
+                "discPercent": 30,
+                "maxQuantity": 3,
+                "maxDiscountInRs": 200
+            },
+            "VBScript": {
+                "price": 700,
+                "discPercent": 10,
+                "maxQuantity": 2,
+                "maxDiscountInRs": 125
+            }, "Logo": {
+                "price": 799,
+                "discPercent": 5,
+                "maxQuantity": 4,
+                "maxDiscountInRs": 100
+            }, "RPG (OS/400)": {
+                "price": 120,
+                "discPercent": 1,
+                "maxQuantity": 3,
+                "maxDiscountInRs": 99999
+            }, "Pascal": {
+                "price": 330,
+                "discPercent": 15,
+                "maxQuantity": 2,
+                "maxDiscountInRs": 50
+            }, "JavaScript": {
+                "price": 285.50,
+                "discPercent": 5,
+                "maxQuantity": 2,
+                "maxDiscountInRs": 25
+            }, "CoffeeScript": {
+                "price": 350,
+                "discPercent": 5,
+                "maxQuantity": 2,
+                "maxDiscountInRs": 99999
+            }, "Python": {
+                "price": 560,
+                "discPercent": 2,
+                "maxQuantity": 3,
+                "maxDiscountInRs": 25
+            }, "Lisp": {
+                "price": 230.50,
+                "discPercent": 10,
+                "maxQuantity": 2,
+                "maxDiscountInRs": 45
+            }, "Go": {
+                "price": 520.50,
+                "discPercent": 5,
+                "maxQuantity": 3,
+                "maxDiscountInRs": 50
+            }, "Prolog": {
+                "price": 900,
+                "discPercent": 2,
+                "maxQuantity": 10,
+                "maxDiscountInRs": 100
+            }
+
+        }
+
+        const cart = [{ 'C++': 2 }, { Java: 1 }, { VBScript: 5 }]
+        const cartbooks = []
+        const cartbookNum = []
+
+        for (let i = 0; i < cart.length; i++) {
+            cartbooks.push(Object.keys(cart[i])[0])
+            cartbookNum.push(Object.values(cart[i])[0])
+        }
+        console.log(`%c Books: ${cartbooks}`, 'color:white;background-color:brown')
+        console.log(`%c Quantity:${cartbookNum}`,'color:white;background-color:brown')
+
+
+        let bookprices = []
+        let i = 0
+        let deverBooks = []
+        cartbooks.forEach(Book => {
+
+            let { price, discPercent, maxDiscountInRs, maxQuantity } = Books[Book]
+
+            if (cartbookNum[i] > maxQuantity) {
+                bookprices.push(`Limit Exceeded ${maxQuantity} for ${cartbooks[i]}`)
+                
+            }
+
+            else {
+                deverBooks.push(cartbookNum[i])
+
+                let DiscountofBooks = (price * discPercent / 100) * cartbookNum[i]
+                let maxDisc = maxDiscountInRs
+                let Discount = (DiscountofBooks <= maxDiscountInRs) ? DiscountofBooks : maxDiscountInRs
+
+
+                bookprices.push(price * cartbookNum[i] - Discount)
+                i++
+            }
+        });
+
+        console.log(`%c Price of each books are`, 'color:red;background-color:yellow')
+
+        for(let j = 0 ; j < cartbooks.length; j++ ){
+            console.log(`%c ${cartbooks[j]} : ${bookprices[j]}`, 'color:red;background-color:yellow')
+        }
+
+        let Bills = bookprices.filter(bill => {
+            if (typeof bill == "number") {
+                return bill
+            }
+        }
+        )
+
+        let TotBill = Bills.reduce(redfunc)
+        function redfunc(total, value) {
+            return total + value
+        }
+
+        TotBill = TotBill > 500 ? (TotBill - 50) : TotBill
+        if(TotBill>50){
+            console.log(`%c Special Discount: 50`, 'color:white;background-color:blue')
+        }
+        let ShipCost = deverBooks.reduce(redfunc2)
+        function redfunc2(total, value) {
+            return total + value
+        }
+
+        console.log(`%c Total Bill:${TotBill}`, 'color:white;background-color:green')
+        console.log(`%c Shipping Bill:${ShipCost * 10}`, 'color:white;background-color:green')
+
+
+    </script>
+</body>
+
+</html>
