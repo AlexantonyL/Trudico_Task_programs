@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>standard and section</title>
+</head>
+<body>
+    <div class="container">
+         
+        
+        <div>
+            <div>
+                <h3><%= Object.values(items)[0].standard %> Standard and '<%= Object.values(items)[0].section %>' Section</h3>
+            </div>
+            <br>
+            <br>
+            <div>
+                <h4>Displaying Students of <%= skipStudents+1 %> - <%= skipStudents+limitStudents %> of <%= noOfstudents %>  </h4>
+            </div>
+            <table border="4">
+                <tr>
+                    <th>name</th>
+                    <th>gender</th>
+                    <th>Username</th>
+                    <th>Address</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <% for(let k=0;k<items.length;k++){ %> 
+                <tr>
+                    <td><%= Object.values(items)[k].name %></td>
+                    <td><%= Object.values(items)[k].gender %></td>
+                    <td><%= Object.values(items)[k].username %></td>
+                    <td><%= Object.values(items)[k].address %></td>
+                    <td><a href="/updateStudent/<%= Object.values(items)[k]._id %>" class="btn btn-primary">Edit</a></td>
+                    <td><a href="/delete/<%= Object.values(items)[k]._id %> " class="btn btn-danger">Delete</a></td>
+                </tr>
+                <% } %> 
+            </table>
+           
+            <br>
+            <br>
+           <div>
+            <% for(let i=1; i<noOfpages;i++){ %>
+                <a href="getStudents/?limit=5&skip=<%= i*5 %>&std=<%= std %>&sec=<%= sec %>    "><%= i %> </a>
+                <% } %> 
+           </div>
+        </div>
+    </div>
+    <div>
+        
+    </div>
+    
+</body>
+</html>
