@@ -1,0 +1,40 @@
+<html>
+    <head><title>Sorting</title></head>
+
+   <h5 style="color: red;">befor sorting [2,4,8,5,7,1,9,10,15,78,44,53,63,89,32,77,3,90,21]</h5>
+
+
+
+
+
+
+
+        <p id="demo" style="color: green;"></p>
+
+    </body>
+</html>
+
+
+<script>
+
+    const arr=[2,4,8,5,7,1,9,10,15,78,44,53,63,89,32,77,3,90,21];
+    
+    let len=arr.length;
+    let temp;
+    for(var i=0;i<len-1;i++){
+
+
+    for(var j=0;j<len-i-1;j++){
+        if(arr[j]>arr[j+1]){
+            temp=arr[j];
+            arr[j]=arr[j+1];
+            arr[j+1]=temp;
+        }
+
+    }
+
+     
+    }
+    
+    document.getElementById("demo").innerHTML=arr;
+    </script>
